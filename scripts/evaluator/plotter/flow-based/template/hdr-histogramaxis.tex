@@ -1,0 +1,26 @@
+\begin{axis}[
+    height = 5cm,
+    width = 10cm,
+    xmode=log,
+    ymode=log,
+    grid=major,
+    log basis x={10},
+    log basis y={10},
+    ymin=10^0,
+    ymax=10^5,
+    max space between ticks=20,
+    yminorticks=true,
+    xtick={1, 2, 10, 100, 1000, 10000, 100000, 1000000},
+    xticklabels={0, 50, 90, 99, 99.9, 99.99, 99.999, 99.9999},
+    xmin=10^0,
+    xmax=10^7,
+    xlabel={Percentiles [\%]},
+    ylabel={Latency [\si{\micro\second}]},
+    restrict x to domain=0:2000000,
+    cycle list name=mystil,
+    legend pos = outer north east,
+]
+
+    {{ content | indent(4) }}
+
+\end{axis}

@@ -1,0 +1,20 @@
+\begin{axis}[
+    width=15cm,
+    height=10cm,
+    xmin=0,
+    ymin=0,
+    xmax=1000,
+    restrict x to domain=0:1000,
+    grid=major,
+    xlabel = {Latency [\si{\micro\second}]},
+    ylabel = {Events},
+    tick label style = {font=\scriptsize},
+    point meta={y-x},
+    ybar=0,
+    cycle list name=mystil,
+    bar width=.1pt
+]
+
+    {{ content | indent(4) }}
+
+\end{axis}

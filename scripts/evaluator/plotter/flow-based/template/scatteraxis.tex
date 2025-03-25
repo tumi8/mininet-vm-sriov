@@ -1,0 +1,15 @@
+\begin{axis}[
+    width=15cm,
+    height=10cm,
+    ymin=0,
+    grid=major,
+    ylabel = {Latency [\si{\milli\second}]},
+    xlabel = {Measurement time [\si{\second}]},
+    tick label style = {font=\scriptsize},
+    cycle list name=mystil,
+    mark options = {scale = .5}
+]
+
+    {{ content | indent(4) }}
+
+\end{axis}

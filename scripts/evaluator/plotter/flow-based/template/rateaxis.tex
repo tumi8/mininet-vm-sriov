@@ -1,0 +1,17 @@
+\begin{axis}[
+    width=15cm,
+    height=10cm,
+    ymin=0,
+    grid=major,
+    xlabel = { {{ xlabel }} },
+    ylabel = { {{ ylabel }} },
+    tick label style = {font=\scriptsize},
+    cycle list name=mystil,
+    mark options = {scale = .5},
+    legend pos=outer north east,
+]
+{% for content in plots %}
+    {{ content | indent(4) }}
+{% endfor %}
+
+\end{axis}

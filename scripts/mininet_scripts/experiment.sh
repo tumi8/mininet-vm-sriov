@@ -86,7 +86,7 @@ $POS commands await "$COMMAND_EVALUATOR_ID"
 
 wait
 
-$POS nodes copy -r --queued "$EVALUATOR" ../hvnet/evaluation
+$POS nodes copy -r --queued "$EVALUATOR" ../evaluator
 
 $POS commands launch --infile evaluate.sh "$EVALUATOR" --queued --name evaluate_eval
 

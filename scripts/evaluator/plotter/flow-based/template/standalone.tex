@@ -1,0 +1,14 @@
+\RequirePackage{luatex85}
+\documentclass{standalone}
+\usepackage{tumcolor}
+\usepackage{siunitx}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+    \begin{tikzpicture}[>=latex]
+        {{ colorscheme | indent (8) }}
+        {{ content | indent(8) }}
+    \end{tikzpicture}
+\end{document}

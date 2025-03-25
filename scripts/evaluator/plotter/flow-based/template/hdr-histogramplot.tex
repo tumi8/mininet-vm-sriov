@@ -1,0 +1,7 @@
+% run{{ run }}
+% loop {{ loop }}
+\addplot table[
+    col sep=comma,
+    x expr= \thisrowno{2},
+    y expr= \thisrowno{1}/1000,
+]{{'{'+content+'}'}};

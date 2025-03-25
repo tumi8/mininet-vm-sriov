@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Get variables from pos
 LOOP=0
 EXECUTE_TYPE="flow-based"
 
@@ -23,9 +22,9 @@ process_pcap() {
   dropdb --if-exists "$DB_NAME"
   createdb "$DB_NAME"
   export PGDATABASE="$DB_NAME"
-  ~/evaluation/dbscripts/"$EXECUTE_TYPE"/import.sh "$PCAP"
-  ~/evaluation/dbscripts/"$EXECUTE_TYPE"/analysis.sh "$PCAP"
-  ~/evaluation/dbscripts/"$EXECUTE_TYPE"/cleanup.sh
+  ~/evaluator/dbscripts/"$EXECUTE_TYPE"/import.sh "$PCAP"
+  ~/evaluator/dbscripts/"$EXECUTE_TYPE"/analysis.sh "$PCAP"
+  ~/evaluator/dbscripts/"$EXECUTE_TYPE"/cleanup.sh
 }
 
 execution() {
@@ -42,7 +41,7 @@ execution() {
   parallel -j $NUM_CORES "process_pcap {} $i {%} $EXECUTE_TYPE" ::: ../latencies-pre-*.pcap.zst
 
   popd; pushd "$RESULT_DIR"
-  cp -r ~/evaluation/plotter/"$EXECUTE_TYPE"/* .
+  cp -r ~/evaluator/plotter/"$EXECUTE_TYPE"/* .
   mkdir figures
   python3 plotcreator.py figures results .
   python3 irqprocessor.py ../irq ./figures
