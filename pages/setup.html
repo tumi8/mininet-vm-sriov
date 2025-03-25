@@ -1,0 +1,81 @@
+---
+# front matter tells Jekyll to process Liquid
+---
+<!DOCTYPE html>
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat" style="">
+  {% include head.html %}
+  <body class="homepage homepage_index">
+    {% include header.html %}
+    <main class="content container" role="main">
+            <div class="content-row">
+    	{% include nav.html %}
+    	    	 <article class="inner-content">
+          <div class="inner-content">
+						<h1  id="the-chair-of-br-network-architectures-and-services">Hardware Setup</h1>
+						<h5>Hardware Topology</h5>
+
+						<p><img src="{{site.baseurl}}/figures/hardware/setup.pdf.svg" style="display:block;margin-left:auto;margin-right:auto;" width="450" alt="network topology"/></p>
+
+						<h3>Topology</h3>
+
+						<p>The setup consists of three nodes:<p>
+
+						<ul>
+							<li>Load generator (LoadGen): runs MoonGen as traffic generator, creates traffic for the DuT and receives the traffic from the DuT</li>
+							<li>Device under test (DuT): forwards the traffic received from the LoadGen between its interfaces, through virtual topologies built with Mininet.</li>
+							<li>Timestamper (Timer): Receives a copy of every packet exchanged between LoadGen and DuT for timestamping which is done in hardware using the capabilities of the E810 NIC</li>
+						</ul>
+
+						<p>DuT and LoadGen are directly connected via optical fibers. The Timer is connected via passive optical taps to mirror both fibers between DuT and LoadGen. The passive optical taps impact on latency is neglectible.</p>
+						
+						<p>All presented Scripts contain different names for the interfaces, those need to be adapted to be run-able on other infrastructure as the interface name is hardware-dependend.</p>
+						
+						<h3>Hardware</h3>
+						
+						<p> The nodes are equipped in the following way:</p>
+						<div class="container">
+						<div class="row">
+						<div class="card col-12 col-lg-4 col-xl-4">
+						  <div class="card-body">
+						    <h5 class="card-title">LoadGen</h5>
+						    <p class="card-text">
+						    	<ul>
+						    	<li>SoC: Intel Xeon Silver 4116 CPU</li>
+							<li>Dual port Intel 82599ES 10-Gigabit SFP+ NIC</li>
+							<li>192 GiB RAM</li></p>
+							</ul>
+						  </div>
+						</div>
+						<div class="card col-12 col-lg-4 col-xl-4">
+						  <div class="card-body">
+						    <h5 class="card-title">DuT</h5>
+						    <p class="card-text">
+						    	<ul>
+						    	<li>SoC: AMD EPYC 7551P 32-Core CPU</li>
+							<li>2x Dual port X710 10GbE SFP+ NICs</li>
+							<li>128 GiB RAM</li></p>
+							</ul>
+						  </div>
+						</div>
+						<div class="card col-12 col-lg-4 col-xl-4">
+						  <div class="card-body">
+						    <h5 class="card-title">Timer</h5>
+						    <p class="card-text">
+						    	<ul>
+						    	<li>SoC: AMD EPYC 7542 32-Core CPU</li>
+							<li>Dual port E810-XXV NICs flashed to 10GbE</li>
+							<li>128 GiB RAM</li></p>
+							</ul>
+						  </div>
+						</div>
+						</div>
+						</div>
+
+<div class="fadein">
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    {% include footer.html %}
+</body></html>

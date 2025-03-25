@@ -1,0 +1,46 @@
+---
+# front matter tells Jekyll to process Liquid
+---
+<!DOCTYPE html>
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat" style="">
+  {% include head.html %}
+  <body class="homepage homepage_index">
+    {% include header.html %}
+    <main class="content container" role="main">
+        <div class="content-row">
+    	{% include nav.html %}
+    	 <article class="inner-content">
+          <div class="inner-content">
+    		<h1 id="the-chair-of-br-network-architectures-and-services">Reproducing Evaluation Results</h1>
+    		<p></p>
+    		<div class="card">
+		  <div class="card-header">
+		    Abstract
+		  </div>
+		  <div class="card-body">
+		    <p></p>
+		    <h4 class="card-title">Continuous Integration for Networks Supporting Low-Latency Using Hybrid Network Emulation</h4>
+		    <p class="card-text">Enabling continuous integration (CI) cycles for network protocols and services poses a significant challenge due to the necessity of building complete and complex networks for testing and verification. 
+This process demands robust simulation, emulation, or a variety of hardware resources.
+<br></br>
+For non-latency, throughput-sensitive services that deal with best-effort traffic, tools like Mininet or ns3 can be utilized effectively. 
+However, latency-sensitive applications require verification in circumstances that closely resemble real-world environments. 
+Tools such as ns3 operate at an abstraction level that is too high to accurately reflect reality, while original Mininet, by relying on virtual Ethernet pairs, tends to lack realistic latency.
+<br></br>
+To address this challenge, we propose using Mininet as a standard and reproducible API, enhanced with Single-Root-IO-Virtualization (SR-IOV)-based connections when stability and lower latencies are paramount. This approach enables us to test and verify working configurations in a straightforward, non-hardware-supported environment, allowing the final stages of our CI process to progress towards more stable products without the necessity to adapt scripts or configurations due to reusing the same API for different underlying technologies. 
+Our findings demonstrate that incorporating SR-IOV into network emulation can potentially double the usable bandwidth and significantly enhance both stability and latency.</p>
+		  </div>
+		</div>
+		<div class="m-4">
+		<p></p>
+		<p>This page contains all scripts, resources, and information needed to reproduce or further evaluate the data from the Paper Florian Wiedner, Dominik Kreutzer, Jonas Andre, Georg Carle "Continuous Integration for Networks Supporting Low-Latency Using Hybrid Network Emulation", ITC36 (June 2025), Trondheim, Norway.</p>
+		<p>All scripts and figures can be found in the following repository: <a href="https://github.com/tumi8/mininet-vm-sriov/tree/main"> https://github.com/tumi8/mininet-vm-sriov/tree/main </a>, all raw data and evaluated data can be found in the following repository <a href="https://doi.org/10.14459/2025mp1773238"> https://doi.org/10.14459/2025mp1773238</a>. </p>
+		</div>
+<div class="fadein">
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    {% include footer.html %}
+</body></html>

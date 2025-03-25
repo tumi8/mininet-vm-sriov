@@ -1,0 +1,47 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Continuous Integration for Networks Supporting Low-Latency Using Hybrid Network Emulation
+email: wiedner@net.in.tum.de
+description: >- # this means to ignore newlines until "baseurl:"
+  Enabling continuous integration (CI) cycles for network protocols and services poses a significant challenge due to the necessity of building complete and complex networks for testing and verification. 
+  This process demands robust simulation, emulation, or a variety of hardware resources.
+  For non-latency, throughput-sensitive services that deal with best-effort traffic, tools like Mininet or ns3 can be utilized effectively. 
+  However, latency-sensitive applications require verification in circumstances that closely resemble real-world environments. 
+  Tools such as ns3 operate at an abstraction level that is too high to accurately reflect reality, while original Mininet, by relying on virtual Ethernet pairs, tends to lack realistic latency.
+  To address this challenge, we propose using Mininet as a standard and reproducible API, enhanced with Single-Root-IO-Virtualization (SR-IOV)-based connections when stability and lower latencies are paramount. This approach enables us to test and verify working configurations in a straightforward, non-hardware-supported environment, allowing the final stages of our CI process to progress towards more stable products without the necessity to adapt scripts or configurations due to reusing the same API 	for different underlying technologies. 
+  Our findings demonstrate that incorporating SR-IOV into network emulation can potentially double the usable bandwidth and significantly enhance both stability and latency.
+domain: "wiednerf.github.io"
+baseurl: "/mininet-vm-sriov" # the subpath of your site, e.g. /blog
+url: "https://tumi8.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  wiednerf
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

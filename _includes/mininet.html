@@ -1,0 +1,35 @@
+
+<pre><code>
+link=LINK # hwpair or veth
+node=NODE # vm, vm_opt or namespace
+
+ps -ef | grep "qemu-system-x86_64" | awk '{print $2}' | xargs kill -15 || echo "failed" # clean from previous run
+cd ~
+
+ip l set dev [LOADGEN_IN] down
+ip l set dev [LOADGEN_OUT] down
+echo 1 >/sys/class/net/[LOADGEN_IN]/device/sriov_numvfs
+echo 1 >/sys/class/net/[LOADGEN_OUT]/device/sriov_numvfs
+sleep 2
+if [[ "$node" == "namespace" ]]; then
+  ip l set dev [LOADGEN_IN] up
+  ip l set dev [LOADGEN_OUT] up
+  ip l set dev [LOADGEN_IN] promisc on
+  ip l set dev [LOADGEN_OUT] promisc on
+  ip l set dev [LOADGEN_IN] up
+  ip l set dev [LOADGEN_OUT] up
+fi
+
+ip l set dev [LOOP1] down
+ip l set dev [LOOP2] down
+echo 14 >/sys/class/net/[LOOP1]/device/sriov_numvfs
+echo 14 >/sys/class/net/[LOOP2]/device/sriov_numvfs
+sleep 1
+for i in {0..13}; do
+	ip l set [LOOP1] vf "$i" spoofchk off trust on vlan $((i + 1)) state enable
+	ip l set [LOOP2] vf "$i" spoofchk off trust on vlan $((i + 1)) state enable
+	sleep 1
+done
+
+python3 mininet_experiment.py "$node" "$link"
+</code></pre>
