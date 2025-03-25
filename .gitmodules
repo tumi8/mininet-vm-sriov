@@ -1,0 +1,3 @@
+[submodule "scripts/CIMininet"]
+	path = scripts/CIMininet
+	url = https://github.com/tumi8/CIMininet.git
